@@ -86,12 +86,13 @@ def one(file: str):
                 del_beam(bm)
                 continue
             else:
-
                 is_already_nrgz = add_energized(bm)
                 if is_already_nrgz:
                     del_beam(bm)
                     continue
                 else:
+                    # print(bm.y, bm.x)
+                    # print(len(grid))
                     spot = grid[bm.y][bm.x]
                     match bm.direction:
                         case "E":
@@ -142,16 +143,16 @@ def one(file: str):
             single_points.append(x)
     print(single_points)
     print(len(single_points))
-    new_grid = []
-    for i in range(len(grid)):
-        new_grid.append([])
-        for j in range(len(grid[i])):
-            if "{}{}".format(i, j) in single_points:
-                new_grid[i].append("#")
-            else:
-                new_grid[i].append(".")
-    lines = ["".join(i) for i in new_grid]
-    print("\n".join(lines))
+    # new_grid = []
+    # for i in range(len(grid)):
+    #     new_grid.append([])
+    #     for j in range(len(grid[i])):
+    #         if "{}{}".format(i, j) in single_points:
+    #             new_grid[i].append("#")
+    #         else:
+    #             new_grid[i].append(".")
+    # lines = ["".join(i) for i in new_grid]
+    # print("\n".join(lines))
     
 
 # one(test)
